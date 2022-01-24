@@ -1,0 +1,23 @@
+{
+  "name": "inertia",
+  "version": "1.0.0",
+  "description": "A simple web proxy",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "eslint --config .eslintrc.json .",
+    "fix": "eslint --fix --config .eslintrc.json ."
+  },
+  "repository": "https://github.com/TheAlphaReturns/inertia",
+  "author": "Angad Tendulkar <angad.tendulkar@gmail.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "dependencies": {
+    "eslint-plugin-html": "^6.2.0",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-plugin-react": "^7.28.0"
+  }
+}
