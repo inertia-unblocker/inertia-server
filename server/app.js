@@ -3,10 +3,12 @@ const alloyproxy = require('alloyproxy'),
 	corrosion = require('corrosion'),
 	express = require('express'),
 	app = express(),
+	fs = require('fs'),
+	path = require('path'),
 	ssl = {
-		key: ssl/inertia.key,
-		cert: ssl/inertia.cert
-	}
+		key: fs.readFileSync(path.join(__dirname, '/ssl/inertia.key')),
+		cert: fs.readFileSync(path.join(__dirname, '/ssl/inertia.cert'))
+	},
 	server = https.createServer(ssl, app);
 
 let port = process.env.PORT || 5000;
