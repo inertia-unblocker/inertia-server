@@ -13,6 +13,8 @@
   "license": "GPL-3.0",
   "private": false,
   "dependencies": {
+    "alloyproxy": "^1.1.0",
+    "corrosion": "^1.0.0",
     "eslint-plugin-html": "^6.2.0",
     "express": "^4.17.2"
   },
