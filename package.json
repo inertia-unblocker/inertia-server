@@ -1,25 +1,25 @@
 {
-  "name": "inertia",
-  "version": "1.0.0",
-  "description": "A simple web proxy",
-  "main": "server/app.js",
-  "scripts": {
-    "start": "node server/app.js",
-    "test": "eslint --config .eslintrc.json .",
-    "fix": "eslint --fix --config .eslintrc.json ."
-  },
-  "repository": "https://github.com/TheAlphaReturns/inertia",
-  "author": "Angad Tendulkar <angad.tendulkar@gmail.com>",
-  "license": "GPL-3.0",
-  "private": false,
-  "dependencies": {
-    "alloyproxy": "^1.1.0",
-    "corrosion": "^1.0.0",
-    "eslint-plugin-html": "^6.2.0",
-    "express": "^4.17.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.7.0",
-    "eslint-plugin-react": "^7.28.0"
-  }
+	"name": "inertia-server",
+	"version": "1.0.0",
+	"description": "Inertia's backend server",
+	"main": "server/app.js",
+	"scripts": {
+	  "start": "node server/app.js",
+	  "lint": "eslint --fix --config .eslintrc.json ."
+	},
+	"repository": "https://github.com/TheAlphaReturns/inertia",
+	"author": "Angad Tendulkar <angad.tendulkar@gmail.com>",
+	"license": "GPL-3.0",
+	"private": false,
+	"dependencies": {
+	  "alloyproxy": "^1.1.0",
+	  "bare-server-node": "github:tomphttp/bare-server-node",
+	  "eslint-plugin-html": "^6.2.0",
+	  "express": "^4.17.2",
+	  "node-static": "^0.7.11"
+	},
+	"devDependencies": {
+	  "eslint": "^8.7.0"
+	}
 }
+  

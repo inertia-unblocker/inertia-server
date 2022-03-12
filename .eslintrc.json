@@ -14,7 +14,6 @@
         "ecmaVersion": 13
     },
     "plugins": [
-        "react",
 		"html"
     ],
     "rules": {
@@ -36,7 +35,7 @@
     },
 	"overrides": [
 		{
-			"files": [ "**/*.jsx", "**/*.tsx", "client/src/**/*.js" ],
+			"files": [ "**/*.mjs" ],
 			"parserOptions": { 
 				"sourceType": "module" 
 			}
