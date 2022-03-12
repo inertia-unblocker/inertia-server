@@ -34,18 +34,7 @@ app.use(Alloy.app);
 server.on('request', (req, res) => {
 	if (bare.route_request(req, res)) return true;
 	console.log(req.url);
-	if (req.url.startsWith('/alloy-gateway')) {
-		let quurl = url.parse(req.url, true).query.url;
-
-		if (!quurl.endsWith('/')) quurl = quurl + '/';
-		let urlhostname = quurl.match(/^(https?:\/\/[^/]+)/)[0]; // Copilot did this. idk regex. say thanks to copilot.
-		let path = quurl.substring(urlhostname.length);
-
-		let base64_urlhostname = toBase64(urlhostname);
-		res.writeHead(302, {'Location': `/alloy/${base64_urlhostname}${path}`});
-	} else {
-		uvstatic.serve(req, res);
-	}
+	uvstatic.serve(req, res);
 });
 
 server.on('upgrade', (req, socket, head) => {
