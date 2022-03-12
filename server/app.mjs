@@ -40,7 +40,7 @@ app.get('/alloy-gateway', (req, res) => {
 
 app.get('/uv-gateway', (req, res) => {
 	let url = req.query.url;
-	res.redirect(`/?url=${url}?usedGateway=true`);
+	res.redirect(`/?url=${url}&usedGateway=true`);
 });
 
 
