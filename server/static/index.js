@@ -1,15 +1,18 @@
 window.addEventListener('load', event => {
 	event.preventDefault();
 
-	let url = new URL(location.href).searchParams.get('url');
+	const params = new URLSearchParams(location.href).searchParams;
+	let url = params.get('url');
+	let usedGateway = params.get('usedGateway');
+	alert(params);
 
-	if (typeof(url) != 'string') {
-		window.location.href = 'https://www.google.com/';
+	if (url == null || usedGateway != true) {
+		window.location.href = 'https://inertia.up.railway.app/';
 	}
 
 	window.navigator.serviceWorker.register('./sw.js', {
 		scope: __uv$config.prefix
 	}).then(() => {
-		window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+		if (url != null && usedGateway == true) window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
 	});
 });

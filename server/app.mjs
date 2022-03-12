@@ -1,40 +1,55 @@
 import http from 'http';
 import express from 'express';
-import url from 'url';
 import Server from 'bare-server-node';
 import alloyproxy from 'alloyproxy';
 import nodeStatic from 'node-static';
 
 const bare =  new Server('/bare/', ''),
-	uvstatic = new nodeStatic.Server('server/static/'),
+	uvstatic = new nodeStatic.Server('server/static/', { cache: 10 }),
 	app = express(),
 	server = http.createServer(app),
-	PORT = process.env.PORT || 8080;
+	PORT = process.env.PORT || 5000;
 
-// Alloy stuff
 function toBase64(str) {
 	return Buffer.from(str).toString('base64');
 }
 
-const Alloy = new alloyproxy({
+// Alloy
+let Alloy = new alloyproxy({
 	prefix: '/alloy/',
-	Request: [],
-	Response: [],
-	error: (alloy) => { 
-		alloy.res.send({
-			state: 'failed',
-			message: 'Error: ' + alloy.error.info.message
-		}); 
-	},
+	request: [],
+	response: [],
 	injection: true,
 });
 
 app.use(Alloy.app);
+Alloy.ws(server);
 
-server.on('request', (req, res) => {
-	if (bare.route_request(req, res)) return true;
-	console.log(req.url);
-	uvstatic.serve(req, res);
+
+// URL Handling
+app.get('/alloy-gateway', (req, res) => {
+	let url = req.query.url;
+
+	if (!url.endsWith('/')) url = url + '/';
+	let urlhostname = url.match(/^(https?:\/\/[^/]+)/)[0]; // Copilot did this. idk regex. say thanks to copilot.
+	let path = url.substring(urlhostname.length);
+
+	let base64_urlhostname = toBase64(urlhostname);
+	res.redirect(`/alloy/${base64_urlhostname}${path}`);
+});
+
+app.get('/uv-gateway', (req, res) => {
+	let url = req.query.url;
+	res.redirect(`/?url=${url}?usedGateway=true`);
+});
+
+
+// Ultraviolet
+app.use((req, res) => {
+	if (!req.url.startsWith('/alloy')) {
+		if (bare.route_request(req, res)) return true;
+		uvstatic.serve(req, res);
+	}
 });
 
 server.on('upgrade', (req, socket, head) => {
@@ -42,6 +57,8 @@ server.on('upgrade', (req, socket, head) => {
 	socket.end();
 });
 
+
+// Server Listening
 server.listen(PORT, () => {
 	console.log('Server running on port ' + PORT);
 });
