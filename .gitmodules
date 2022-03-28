@@ -1,0 +1,3 @@
+[submodule "Ultraviolet"]
+	path = server/static/uv
+	url = https://github.com/titaniumnetwork-dev/Ultraviolet-Core
