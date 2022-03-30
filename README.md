@@ -19,3 +19,9 @@ Ultraviolet is a webproxy made by [TitaniumNetwork-Dev](https://github.com/Titan
 ## Contributing
 
 A `.eslintrc.json` is bundled with the source code. Please use it and do not edit the formatting checks. They are there for a reason.
+
+### Adding servers
+
+If you deploy this server to a different URL, (please deploy all branches)
+please let me know (Make an issue) so I can add it as a target for the client.
+Thanks!
