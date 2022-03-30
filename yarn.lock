@@ -59,13 +59,6 @@ ajv@^6.10.0, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alloyproxy@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/alloyproxy/-/alloyproxy-1.1.0.tgz#95d4064bd691a0f949e1a66de9bd966e1c0fff7f"
-  integrity sha512-AlLoWex3qx2dWRO+3HovFjUWoRx4Lq9hEeyH5soIvJ0Y18VP2kgd8nuGirLJgJiVkoZyZJ31qzYK5q+vRsAebA==
-  dependencies:
-    ws "^7.4.0"
-
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
@@ -1009,8 +1002,3 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-
-ws@^7.4.0:
-  version "7.5.6"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.6.tgz#e59fc509fb15ddfb65487ee9765c5a51dec5fe7b"
-  integrity sha512-6GLgCqo2cy2A2rjCNFlxQS6ZljG/coZfZXclldI8FB/1G3CCI36Zd8xy2HrFVACi8tfk5XrgLQEk+P0Tnz9UcA==
