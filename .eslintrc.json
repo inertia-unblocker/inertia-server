@@ -13,9 +13,7 @@
         },
         "ecmaVersion": 13
     },
-    "plugins": [
-		"html"
-    ],
+    "plugins": [],
     "rules": {
         "indent": [
             "warn",

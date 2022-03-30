@@ -5,18 +5,18 @@ import Alloy from 'alloyproxy';
 const app = express(),
 	server = http.createServer(app),
 	PORT = process.env.PORT || 5000;
-	proxy = new Alloy({
-		prefix: '/alloy/',
-		request: [],
-		response: [],
-		error: (proxy) => { 
-			proxy.res.send({
-				state: 'failed',
-				message: 'Error: ' + proxy.error.info.message
-			}); 
-		},
-		injection: true,
-	});
+proxy = new Alloy({
+	prefix: '/alloy/',
+	request: [],
+	response: [],
+	error: (proxy) => { 
+		proxy.res.send({
+			state: 'failed',
+			message: 'Error: ' + proxy.error.info.message
+		}); 
+	},
+	injection: true,
+});
 
 app.use(proxy.app);
 proxy.ws(server);
