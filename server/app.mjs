@@ -1,22 +1,41 @@
-import Server from 'bare-server-node';
 import http from 'http';
-import nodeStatic from 'node-static';
+import express from 'express';
+import Alloy from 'alloyproxy';
 
-const bare =  new Server('/bare/', ''),
-	serve = new nodeStatic.Server('server/static/'),
-	server = http.createServer(),
+const app = express(),
+	server = http.createServer(app),
 	PORT = process.env.PORT || 5000;
+	proxy = new Alloy({
+		prefix: '/alloy/',
+		request: [],
+		response: [],
+		error: (proxy) => { 
+			proxy.res.send({
+				state: 'failed',
+				message: 'Error: ' + proxy.error.info.message
+			}); 
+		},
+		injection: true,
+	});
 
-server.on('request', (request, response) => {
-	if (bare.route_request(request, response)) return true;
-	serve.serve(request, response);
-});
+app.use(proxy.app);
+proxy.ws(server);
 
-server.on('upgrade', (req, socket, head) => {
-	if(bare.route_upgrade(req, socket, head))return;
-	socket.end();
+function toBase64(str) {
+	return Buffer.from(str).toString('base64');
+}
+
+app.get('/alloy-gateway', (req, res) => {
+	let url = req.query.url;
+
+	if (!url.endsWith('/')) url = url + '/';
+	let urlhostname = url.match(/^(https?:\/\/[^/]+)/)[0]; // Copilot did this. idk regex. say thanks to copilot.
+	let path = url.substring(urlhostname.length);
+
+	let base64_urlhostname = toBase64(urlhostname);
+	res.redirect(`/alloy/${base64_urlhostname}${path}`);
 });
 
 server.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
+	console.log('Server running on port ' + PORT);
 });
