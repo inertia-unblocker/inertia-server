@@ -11,6 +11,7 @@ Inertia's backend server
 
 - Start with `yarn start`
 - To access Ultraviolet, go to `https://localhost:5000/?url=https://...`
+- You can find a public build at `https://inertia-server-corrosion.herokuapp.com/`
 
 ## Ultraviolet
 
