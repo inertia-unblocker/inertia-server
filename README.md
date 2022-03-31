@@ -10,7 +10,8 @@ Inertia's backend server
 ## How to use
 
 - Start with `yarn start`
-- To access Ultraviolet, go to `https://localhost:5000/?url=https://...`
+- To access Ultraviolet, go to `https://localhost:5000/alloy-gateway?url=https://...`
+- Find a public build at `https://inertia-server-alloy.herokuapp.com/`
 
 ## Ultraviolet
 
