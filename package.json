@@ -4,7 +4,7 @@
 	"description": "Inertia's backend server",
 	"main": "server/app.js",
 	"scripts": {
-	  "postinstall": "git submodule update --init --recursive",
+	  "postinstall": "node .syncRepos.js",
 	  "start": "node server/app.js",
 	  "lint": "eslint --fix --config .eslintrc.json ."
 	},
