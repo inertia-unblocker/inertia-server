@@ -1,7 +1,6 @@
 import Server from 'bare-server-node';
 import http from 'http';
 import nodeStatic from 'node-static';
-import cors from 'cors';
 
 const bare =  new Server('/bare/', ''),
 	serve = new nodeStatic.Server('server/static/'),
