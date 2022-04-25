@@ -8,11 +8,6 @@ const bare =  new Server('/bare/', ''),
 	PORT = process.env.PORT || 5000;
 
 server.on('request', (request, response) => {
-	response.setHeader('Access-Control-Allow-Credentials', 'true');
-	response.setHeader('Access-Control-Allow-Origin', '*');
-	response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-	response.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Authorization, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-
 	if (bare.route_request(request, response)) return true;
 	serve.serve(request, response);
 });
