@@ -8,6 +8,12 @@ const bare =  new Server('/bare/', ''),
 	PORT = process.env.PORT || 5000;
 
 server.on('request', (request, response) => {
+	response.setHeader('Access-Control-Allow-Origin', '*');
+	response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
+	response.setHeader('Access-Control-Max-Age', 2592000);
+	response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+	response.setHeader('Access-Control-Allow-Credentials', 'true');
+
 	if (bare.route_request(request, response)) return true;
 	serve.serve(request, response);
 });

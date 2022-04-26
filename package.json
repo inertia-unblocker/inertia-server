@@ -4,21 +4,20 @@
 	"description": "Inertia's backend server",
 	"main": "server/app.js",
 	"scripts": {
-	  "postinstall": "node .syncRepos.js",
-	  "start": "node server/app.js",
-	  "lint": "eslint --fix --config .eslintrc.json ."
+		"postinstall": "node .syncRepos.js",
+		"start": "node server/app.js",
+		"lint": "eslint --fix --config .eslintrc.json ."
 	},
 	"repository": "https://github.com/TheAlphaReturns/inertia",
 	"author": "Angad Tendulkar <angad.tendulkar@gmail.com>",
 	"license": "GPL-3.0",
 	"private": false,
 	"dependencies": {
-	  "bare-server-node": "github:tomphttp/bare-server-node",
-	  "eslint-plugin-html": "^6.2.0",
-	  "node-static": "^0.7.11"
+		"bare-server-node": "github:tomphttp/bare-server-node",
+		"eslint-plugin-html": "^6.2.0",
+		"node-static": "^0.7.11"
 	},
 	"devDependencies": {
-	  "eslint": "^8.7.0"
+		"eslint": "^8.7.0"
 	}
 }
-  
