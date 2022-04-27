@@ -9,10 +9,10 @@ fs.access('./.git', fs.F_OK, (err) => {
 			if (err) {
 				// the zip file way
 				exec('wget https://github.com/inertia-unblocker/uv-scripts/archive/refs/heads/main.zip')
-				exec('unzip uv-scripts-main.zip')
+				exec('unzip main.zip')
 				exec('mv uv-scripts-main/* server/static/uv')
 				exec('rm -rf uv-scripts-main')
-				
+
 				return;
 			}
 			if (stderr) {
