@@ -7,7 +7,12 @@ fs.access('./.git', fs.F_OK, (err) => {
 
 		exec('git clone https://github.com/inertia-unblocker/uv-scripts ./server/static/uv', (err, stdout, stderr) => {
 			if (err) {
-				console.error(err);
+				// the zip file way
+				exec('wget https://github.com/inertia-unblocker/uv-scripts/archive/refs/heads/main.zip')
+				exec('unzip uv-scripts-main.zip')
+				exec('mv uv-scripts-main/* server/static/uv')
+				exec('rm -rf uv-scripts-main')
+				
 				return;
 			}
 			if (stderr) {
