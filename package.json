@@ -1,23 +1,17 @@
 {
-	"name": "inertia-server",
+	"name": "inertia-bare-server",
 	"version": "1.0.0",
-	"description": "Inertia's backend server",
-	"main": "server/app.js",
-	"scripts": {
-		"postinstall": "node .syncRepos.js",
-		"start": "node server/app.js",
-		"lint": "eslint --fix --config .eslintrc.json ."
-	},
-	"repository": "https://github.com/TheAlphaReturns/inertia",
-	"author": "Angad Tendulkar <angad.tendulkar@gmail.com>",
+	"description": "The Bare Server for Inertia",
+	"main": "index.mjs",
+	"repository": "git@github.com:inertia-unblocker/inertia-bare-server",
+	"author": "TheAlphaReturns",
 	"license": "GPL-3.0",
 	"private": false,
-	"dependencies": {
-		"bare-server-node": "github:tomphttp/bare-server-node",
-		"eslint-plugin-html": "^6.2.0",
-		"node-static": "^0.7.11"
+	"scripts": {
+		"start": "node index.js"
 	},
-	"devDependencies": {
-		"eslint": "^8.7.0"
+	"type": "module",
+	"dependencies": {
+		"@tomphttp/bare-server-node": "1.0.2-beta-readme4"
 	}
 }
