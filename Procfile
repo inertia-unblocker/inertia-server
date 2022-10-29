@@ -1,1 +1,1 @@
-worker: npm i && node server/app.js
+web: npm i && node server/app.js
