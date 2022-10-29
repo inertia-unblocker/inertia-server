@@ -8,7 +8,7 @@
 	"license": "GPL-3.0",
 	"private": false,
 	"scripts": {
-		"start": "node index.js"
+		"start": "node server/app.js"
 	},
 	"type": "module",
 	"dependencies": {

@@ -7,8 +7,8 @@ const bareServer = createBareServer('/bare/', {
 	logErrors: false,
 	localAddress: undefined,
 	maintainer: {
-		email: 'tomphttp@sys32.dev',
-		website: 'https://github.com/tomphttp/',
+		email: 'inertia.unblocker@gmail.com',
+		website: 'https://github.com/inertia-unblocker',
 	},
 });
 
