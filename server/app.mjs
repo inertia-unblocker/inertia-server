@@ -1,11 +1,9 @@
 import createBareServer from '@tomphttp/bare-server-node';
-import { createServer as createHttpServer } from 'http';
+import { createServer } from 'http';
 
-const httpServer = createHttpServer();
-
+const PORT = process.env.PORT || 5000;
+const httpServer = createServer();
 const bareServer = createBareServer('/bare/', {
-	logErrors: false,
-	localAddress: undefined,
 	maintainer: {
 		email: 'inertia.unblocker@gmail.com',
 		website: 'https://github.com/inertia-unblocker',
@@ -19,25 +17,14 @@ httpServer.on('request', (req, res) => {
 	res.setHeader('Access-Control-Allow-Credentials', 'true');
 	res.setHeader('Access-Control-Max-Age', '86400');
 
-	if (bareServer.shouldRoute(req)) {
-		bareServer.routeRequest(req, res);
-	} else {
-		res.writeHead(400);
-	}
+	if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
+	else res.writeHead(400);
 });
 
 httpServer.on('upgrade', (req, socket, head) => {
-	if (bareServer.shouldRoute(req)) {
-		bareServer.routeUpgrade(req, socket, head);
-	} else {
-		socket.end();
-	}
+	if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+	else socket.end();
 });
 
-httpServer.on('listening', () => {
-	console.log('HTTP server listening');
-});
-
-httpServer.listen({
-	port: process.env.PORT || 5000,
-});
+httpServer.on('listening', () => console.log(`Listening on port ${PORT}`));
+httpServer.listen(PORT);
