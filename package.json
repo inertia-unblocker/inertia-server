@@ -1,10 +1,10 @@
 {
-	"name": "inertia-bare-server",
-	"version": "1.0.0",
+	"name": "inertia-server",
+	"version": "1.0.0-bare",
 	"description": "The Bare Server for Inertia",
-	"main": "index.mjs",
+	"main": "server/app.js",
 	"repository": "git@github.com:inertia-unblocker/inertia-bare-server",
-	"author": "TheAlphaReturns",
+	"author": "OnlyCS",
 	"license": "GPL-3.0",
 	"private": false,
 	"scripts": {
