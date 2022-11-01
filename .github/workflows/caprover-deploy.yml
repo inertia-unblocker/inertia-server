@@ -35,5 +35,5 @@ jobs:
         uses: caprover/deploy-from-github@v1.0.1
         with:
           server: "${{ secrets.CAPROVER_SERVER }}"
-          app: "bare"
-          token: "${{ secrets.CAPROVER_TOKEN_BARE }}"
+          app: "ultraviolet"
+          token: "${{ secrets.CAPROVER_TOKEN_ULTRAVIOLET }}"
