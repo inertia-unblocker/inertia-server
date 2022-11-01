@@ -1,7 +1,7 @@
 import createBareServer from '@tomphttp/bare-server-node';
 import { createServer } from 'http';
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 const httpServer = createServer();
 const bareServer = createBareServer('/bare/', {
 	maintainer: {
@@ -26,5 +26,4 @@ httpServer.on('upgrade', (req, socket, head) => {
 	else socket.end();
 });
 
-httpServer.on('listening', () => console.log(`Listening on port ${PORT}`));
-httpServer.listen(PORT);
+httpServer.listen(port, () => console.log(`Listening on port ${port}`));
