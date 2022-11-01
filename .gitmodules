@@ -1,0 +1,5 @@
+[submodule "uv-scripts"]
+	path = server/static/uv
+	url = https://github.com/inertia-unblocker/uv-scripts.git
+[submodule "server/static/uv"]
+	url = https://github.com/inertia-unblocker/uv-scripts
