@@ -13,11 +13,10 @@
 	"license": "GPL-3.0",
 	"private": false,
 	"dependencies": {
-		"bare-server-node": "github:tomphttp/bare-server-node",
-		"eslint-plugin-html": "^6.2.0",
-		"node-static": "^0.7.11"
+		"express": "^4.18.2"
 	},
 	"devDependencies": {
-		"eslint": "^8.7.0"
+		"eslint": "^8.7.0",
+		"eslint-plugin-html": "^6.2.0"
 	}
 }
