@@ -2,9 +2,6 @@
 	"schemaVersion": 2,
 	"dockerfileLines": [
 		"FROM node:hydrogen-alpine",
-		"RUN apk update",
-		"RUN apk add --no-cache git",
-		"RUN git clone https://github.com/inertia-unblocker/uv-scripts.git ./server/static/uv",
 		"RUN mkdir -p /usr/src/app",
 		"WORKDIR /usr/src/app",
 		"COPY ./package.json /usr/src/app/",
