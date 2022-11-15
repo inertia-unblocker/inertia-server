@@ -1,17 +1,17 @@
 {
-	"name": "inertia-server",
-	"version": "1.0.0-bare",
-	"description": "The Bare Server for Inertia",
-	"main": "server/app.js",
-	"repository": "git@github.com:inertia-unblocker/inertia-bare-server",
-	"author": "OnlyCS",
-	"license": "GPL-3.0",
-	"private": false,
-	"scripts": {
-		"start": "node server/app.js"
-	},
-	"type": "module",
-	"dependencies": {
-		"@tomphttp/bare-server-node": "1.0.2-beta-readme4"
-	}
+  "name": "inertia-server",
+  "version": "1.0.0-bare",
+  "description": "The Bare Server for Inertia",
+  "main": "server/app.js",
+  "repository": "git@github.com:inertia-unblocker/inertia-bare-server",
+  "author": "OnlyCS",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@tomphttp/bare-server-node": "1.0.2-beta-readme4"
+  }
 }
