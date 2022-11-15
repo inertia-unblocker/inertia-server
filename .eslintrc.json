@@ -1,45 +1,32 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13
-    },
-    "plugins": [
-		"html"
-    ],
-    "rules": {
-        "indent": [
-            "warn",
-            "tab"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+    "ecmaVersion": 13
+  },
+  "plugins": ["html"],
+  "rules": {
+    "indent": ["warn", "tab"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
 
-		"no-unused-vars": ["off"],
-		"no-undef": ["off"],
-		"getter-return": ["off"]
-    },
-	"overrides": [
-		{
-			"files": [ "**/*.mjs" ],
-			"parserOptions": { 
-				"sourceType": "module" 
-			}
-		}
-	]
+    "no-unused-vars": ["off"],
+    "no-undef": ["off"],
+    "getter-return": ["off"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.mjs"],
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ]
 }
