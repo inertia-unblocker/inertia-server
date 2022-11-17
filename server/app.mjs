@@ -3,7 +3,7 @@ import { createServer } from 'http';
 
 const port = process.env.PORT || 5000;
 const httpServer = createServer();
-const bareServer = createBareServer('/bare/', {
+const bareServer = createBareServer('/', {
 	maintainer: {
 		email: 'inertia.unblocker@gmail.com',
 		website: 'https://github.com/inertia-unblocker',
